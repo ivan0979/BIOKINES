@@ -17,7 +17,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; background: var(--blanco); color: var(--negro); }
+        body { font-family: 'Montserrat', sans-serif; background: var(--blanco); color: var(--negro); overflow-x: hidden; }
 
         /* NAVBAR */
         nav { 
@@ -29,7 +29,11 @@
         .logo-text { font-family: 'Cinzel', serif; font-size: 1.6rem; color: var(--negro); letter-spacing: 2px; }
         .logo-text span { color: var(--naranja); }
         .nav-links { display: flex; list-style: none; gap: 30px; }
-        .nav-links a { text-decoration: none; color: var(--negro); font-size: 0.85rem; text-transform: uppercase; }
+        .nav-links a { text-decoration: none; color: var(--negro); font-size: 0.85rem; text-transform: uppercase; font-weight: 700; }
+
+        /* BOTÓN MÓVIL */
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+        .menu-toggle span { width: 25px; height: 3px; background: var(--negro); border-radius: 2px; }
 
         /* HEADER */
         .page-header {
@@ -62,15 +66,18 @@
         .faq-item { background: white; padding: 20px; border: 1px solid #eee; border-radius: 8px; }
         .faq-item h4 { font-family: 'Playfair Display', serif; margin-bottom: 10px; color: var(--negro); }
 
-        /* BOTÓN WHATSAPP FLOTANTE */
-        .whatsapp-float {
-            position: fixed; bottom: 30px; right: 30px; background: var(--whatsapp); color: white;
-            width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center;
-            align-items: center; text-decoration: none; font-size: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 100;
-        }
 
         @media (max-width: 900px) {
-            .contacto-container { grid-template-columns: 1fr; }
+            .menu-toggle { display: flex; }
+            .nav-links {
+                display: none; flex-direction: column; position: absolute;
+                top: 80px; left: 0; width: 100%; background: var(--gris); padding: 20px;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+            }
+            .nav-links.active { display: flex; }
+            .contacto-container { grid-template-columns: 1fr; gap: 40px; }
+            .page-header h1 { font-size: 1.8rem; }
+            .formulario-contacto { padding: 25px; }
         }
     </style>
 </head>
@@ -81,7 +88,10 @@
             <img src="LOGO3.jpg" alt="Biokines" class="logo-img">
             <div class="logo-text">BI<span>O</span>KINES</div>
         </a>
-        <ul class="nav-links">
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span><span></span><span></span>
+        </div>
+        <ul class="nav-links" id="nav-list">
             <li><a href="index.html">Inicio</a></li>
             <li><a href="equipo.html">Equipo</a></li>
             <li><a href="servicios.html">Servicios</a></li>
@@ -99,12 +109,12 @@
             <h2>Hablemos</h2>
             <div class="dato">
                 <h3>Dirección Clínica</h3>
-                <p>Tu calle, número, código postal</p>
-                <p>Ciudad, Provincia</p>
+                <p>Calle Astorga 21</p>
+                <p>37006 Salamanca</p>
             </div>
             <div class="dato">
                 <h3>Teléfono de Citas</h3>
-                <p>+34 000 000 000</p>
+                <p>923 246 817</p>
             </div>
             <div class="dato">
                 <h3>Email de Consulta</h3>
@@ -112,7 +122,7 @@
             </div>
             <div class="dato">
                 <h3>Horario Comercial</h3>
-                <p>Lunes a Viernes: 09:00 - 21:00</p>
+                <p>Lunes a Viernes: 09:00 - 20:00</p>
                 <p>Sábados y Domingos: Consultar Urgencias</p>
             </div>
         </section>
@@ -162,13 +172,19 @@
         </div>
     </section>
 
-    <a href="https://wa.me/tu_numero_aqui" class="whatsapp-float" target="_blank">
-        W
-    </a>
 
     <footer style="background: var(--negro); color: #888; padding: 40px 5%; text-align: center; font-size: 0.8rem;">
         <p>© 2026 BIOKINES. Todos los derechos reservados.</p>
     </footer>
+
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+
+        menuToggle.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+    </script>
 
 </body>
 </html>

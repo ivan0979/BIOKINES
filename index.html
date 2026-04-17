@@ -32,106 +32,97 @@
         .logo-text span { color: var(--naranja); }
         
         .nav-links { display: flex; list-style: none; gap: 30px; }
-        .nav-links a { text-decoration: none; color: var(--negro); font-size: 0.85rem; text-transform: uppercase; transition: 0.3s; }
-        .nav-links a:hover { color: var(--naranja); }
-
-        /* Icono Hamburguesa (Oculto por defecto) */
+        .nav-links a { text-decoration: none; color: var(--negro); font-size: 0.85rem; text-transform: uppercase; transition: 0.3s; font-weight: 700; }
+        
         .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
         .menu-toggle span { width: 25px; height: 3px; background: var(--negro); border-radius: 2px; }
 
         /* HERO */
-        #inicio {
-            height: 90vh; 
-            display: flex; justify-content: center; align-items: center; background-color: var(--blanco);
-        }
+        #inicio { height: 90vh; display: flex; justify-content: center; align-items: center; }
         .hero-content {
             position: relative; width: 100%; height: 100%;
-            border-radius: 0 0 50vw 0 / 0 0 20vh 0; 
-            overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.15);
-            background-image: url('fotoinicio.jpg'); 
-            background-size: cover; background-position: center;
+            border-radius: 0 0 50vw 0 / 0 0 20vh 0; overflow: hidden;
+            background-image: url('fotoinicio.jpg'); background-size: cover; background-position: center;
             display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
-            z-index: 1;
         }
         .hero-content::before {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(90deg, var(--azul-filtro) 0%, rgba(15, 68, 122, 0.4) 100%);
-            z-index: 1;
+            background: linear-gradient(90deg, var(--azul-filtro) 0%, rgba(15, 68, 122, 0.4) 100%); z-index: 1;
         }
         .hero-text-container { position: relative; z-index: 2; color: white; padding: 0 10%; }
-        .hero-text-container h1 { font-size: 3rem; font-weight: 400; margin-bottom: 30px; max-width: 800px; }
+        .hero-text-container h1 { font-size: 3rem; margin-bottom: 30px; }
         .btn-contacto-hero {
             display: inline-block; background-color: #df9e45; color: white; padding: 12px 35px;
-            text-decoration: none; font-weight: 600; border-radius: 5px; border: 2px solid white; transition: 0.3s;
+            text-decoration: none; font-weight: 600; border-radius: 5px; border: 2px solid white;
         }
 
         /* SECCIÓN MISIÓN */
-        .mision-section { 
-            display: flex; align-items: center; padding: 100px 10%; background: var(--blanco); 
-            gap: 50px; min-height: 60vh;
-        }
+        .mision-section { display: flex; align-items: center; padding: 100px 10%; gap: 50px; }
         .mision-text { flex: 1; }
-        .mision-text h2 { 
-            font-family: 'Playfair Display', serif; font-size: 2.2rem; border-left: 4px solid var(--naranja); padding-left: 30px;
-        }
-        .mision-image { 
-            flex: 1; height: 450px; background-image: url('foto1.JPG'); 
-            background-size: cover; background-position: center; box-shadow: 15px 15px 0px var(--naranja);
-        }
+        .mision-text h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; border-left: 4px solid var(--naranja); padding-left: 30px; }
+        .mision-image { flex: 1; height: 450px; background-image: url('foto1.JPG'); background-size: cover; box-shadow: 15px 15px 0px var(--naranja); }
 
-        /* VALORES (6 PUNTOS) */
+        /* SECCIÓN EQUIPO */
+        .equipo-section { padding: 80px 5%; background: var(--gris-suave); text-align: center; }
+        .team-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; max-width: 1400px; margin: 0 auto; }
+        .team-card { flex: 1; min-width: 180px; max-width: 220px; margin-bottom: 30px; }
+        .team-img { width: 140px; height: 140px; border-radius: 50%; margin: 0 auto 20px; overflow: hidden; border: 2px solid #ddd; filter: grayscale(100%); transition: 0.3s; }
+        .team-img img { width: 100%; height: 100%; object-fit: cover; }
+        .team-card:hover .team-img { filter: grayscale(0%); border-color: var(--naranja); }
+        .team-card h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-style: italic; margin-bottom: 5px; }
+        .team-card p { font-size: 0.7rem; color: var(--naranja); font-weight: 700; text-transform: uppercase; }
+
+        /* VALORES */
         .valores-container {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;
-            max-width: 1200px; margin: 60px auto 0; padding: 0 5%;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 30px; max-width: 1200px; margin: 60px auto; padding: 0 5%;
         }
-        .valor-card {
-            text-align: left; padding: 25px; border: 1px solid #e0e0e0;
-            border-left: 4px solid var(--naranja); background: white; transition: 0.3s;
-        }
-        .valor-card h4 { font-family: 'Cinzel', serif; font-size: 0.9rem; margin-bottom: 10px; }
-        .valor-card p { font-size: 0.85rem; color: #666; line-height: 1.5; }
+        .valor-card { padding: 25px; border-left: 4px solid var(--naranja); background: white; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
 
         /* RESEÑAS */
-        #servicios { padding: 100px 10%; text-align: center; }
-        .google-reviews-box {
-            max-width: 700px; margin: 40px auto; padding: 40px;
-            background: #fff; border-radius: 15px; box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-            min-height: 250px; display: flex; flex-direction: column; justify-content: center;
-            transition: opacity 0.5s ease;
+        #servicios { padding: 80px 10%; text-align: center; }
+        .google-reviews-box { max-width: 700px; margin: 40px auto; padding: 40px; background: #fff; border-radius: 15px; box-shadow: 0 15px 40px rgba(0,0,0,0.08); transition: opacity 0.5s; }
+
+        /* MAPA */
+        #sobre-nosotros { padding: 80px 10%; background: var(--gris-suave); }
+        .sobre-nosotros-wrapper { display: flex; flex-wrap: wrap; gap: 50px; align-items: center; }
+        .sobre-texto, .mapa-frame { flex: 1; min-width: 300px; }
+        .mapa-frame { height: 400px; border: 8px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-radius: 10px; overflow: hidden; }
+
+        /* FOOTER CORREGIDO */
+        footer { 
+            background: var(--negro); 
+            color: #888; 
+            padding: 40px 5%; 
+            text-align: center; 
+            font-size: 0.8rem; 
         }
-        .stars { color: var(--oro); font-size: 1.5rem; margin-bottom: 15px; }
-        .review-text { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; color: #444; font-style: italic; }
-        .google-badge { font-size: 0.7rem; color: #777; margin-top: 5px; text-transform: uppercase; }
-
-        /* UBICACIÓN */
-        #sobre-nosotros { padding: 100px 10%; background: var(--gris-suave); }
-        .sobre-nosotros-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .mapa-frame {
-            width: 100%; height: 450px; border-radius: 10px; overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1); border: 10px solid white;
+        .footer-links { margin-bottom: 20px; }
+        .footer-links a { 
+            color: #888; 
+            text-decoration: none; 
+            margin: 0 10px; 
+            transition: 0.3s; 
+            font-weight: 400;
         }
+        .footer-links a:hover { color: var(--naranja); }
+        .copyright { border-top: 1px solid #333; margin-top: 20px; padding-top: 20px; }
 
-        /* FOOTER */
-        footer { background: var(--negro); color: #888; padding: 40px 5%; text-align: center; font-size: 0.8rem; }
-
-        /* --- 2. MEDIA QUERIES PARA ADAPTACIÓN MÓVIL --- */
+        /* MEDIA QUERIES */
         @media (max-width: 1024px) {
-            .mision-section, .sobre-nosotros-wrapper { grid-template-columns: 1fr; flex-direction: column; text-align: center; }
-            .mision-image, .mapa-frame { width: 100%; max-width: 600px; margin: 0 auto; }
-            .valores-container { grid-template-columns: repeat(2, 1fr); }
+            .mision-section { flex-direction: column; text-align: center; }
             .mision-text h2 { border-left: none; border-top: 4px solid var(--naranja); padding: 20px 0; }
+            .mision-image { width: 100%; height: 300px; }
         }
-
         @media (max-width: 768px) {
-            .menu-toggle { display: flex; } /* Mostramos hamburguesa */
+            .menu-toggle { display: flex; }
             .nav-links {
                 display: none; flex-direction: column; position: absolute;
-                top: 80px; left: 0; width: 100%; background: var(--gris);
-                padding: 20px; box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+                top: 80px; left: 0; width: 100%; background: var(--gris); padding: 20px;
             }
-            .nav-links.active { display: flex; } /* Clase que activa JS */
+            .nav-links.active { display: flex; }
             .hero-text-container h1 { font-size: 2rem; }
-            .valores-container { grid-template-columns: 1fr; }
+            .footer-links a { display: block; margin: 10px 0; } /* Enlaces en vertical para móvil */
         }
     </style>
 </head>
@@ -142,17 +133,13 @@
             <img src="LOGO3.jpg" alt="Logo" class="logo-img">
             <div class="logo-text">BI<span>O</span>KINES</div>
         </a>
-        
-        <div class="menu-toggle" id="mobile-menu">
-            <span></span><span></span><span></span>
-        </div>
-
+        <div class="menu-toggle" id="mobile-menu"><span></span><span></span><span></span></div>
         <ul class="nav-links" id="nav-list">
             <li><a href="index.html">Inicio</a></li>
             <li><a href="equipo.html">Equipo</a></li>
             <li><a href="servicios.html">Servicios</a></li>
             <li><a href="tarifas.html">Tarifas</a></li>
-            <li><a href="contacto.html" style="color: var(--naranja); font-weight: 700;">Contacto</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
         </ul>
     </nav>
 
@@ -172,66 +159,81 @@
         <div class="mision-image"></div>
     </section>
 
+    <section class="equipo-section">
+        <h2 style="font-family: 'Cinzel', serif; margin-bottom: 50px; letter-spacing: 3px;">Nuestro Equipo</h2>
+        <div class="team-container">
+            <div class="team-card"><div class="team-img"><img src="https://i.pravatar.cc/300?img=11" alt="Isabel"></div><h3>Isabel Serrano Dominguez</h3><p>Gerente</p></div>
+            <div class="team-card"><div class="team-img"><img src="https://i.pravatar.cc/300?img=12" alt="Juan"></div><h3>Juan Fco. Serrano Dominguez</h3><p>Fisioterapeuta</p></div>
+            <div class="team-card"><div class="team-img"><img src="https://i.pravatar.cc/300?img=13" alt="Sergio"></div><h3>Sergio Prieto Asensio</h3><p>Fisioterapeuta</p></div>
+            <div class="team-card"><div class="team-img"><img src="https://i.pravatar.cc/300?img=14" alt="Angel"></div><h3>Angel Rodriguez Martin</h3><p>Fisioterapeuta</p></div>
+            <div class="team-card"><div class="team-img"><img src="https://i.pravatar.cc/300?img=15" alt="Adrian"></div><h3>Adrian Patrocinio Sanchez</h3><p>Fisioterapeuta</p></div>
+            <div class="team-card"><div class="team-img"><img src="https://i.pravatar.cc/300?img=16" alt="Marta"></div><h3>Marta Santos Serrano</h3><p>Fisioterapeuta</p></div>
+        </div>
+    </section>
+
     <div class="valores-container">
-        <div class="valor-card"><h4>Profesionalidad</h4><p>Rigurosidad clínica en cada tratamiento basado en evidencia.</p></div>
-        <div class="valor-card"><h4>Puntualidad</h4><p>Respetamos su tiempo. Gestión eficiente de agenda.</p></div>
-        <div class="valor-card"><h4>Experiencia</h4><p>Décadas de trayectoria resolviendo casos complejos.</p></div>
-        <div class="valor-card"><h4>Empatía</h4><p>Entendemos su dolor. Ofrecemos un trato humano y cercano.</p></div>
-        <div class="valor-card"><h4>Cita Telefónica</h4><p>Atención directa para agilizar su reserva.</p></div>
-        <div class="valor-card"><h4>Urgencias</h4><p>Disponibilidad inmediata para cuadros agudos.</p></div>
+        <div class="valor-card"><h4>Profesionalidad</h4><p>Atención basada en evidencia científica.</p></div>
+        <div class="valor-card"><h4>Puntualidad</h4><p>Respetamos su tiempo sin esperas.</p></div>
+        <div class="valor-card"><h4>Experiencia</h4><p>Especialistas en casos complejos.</p></div>
+        <div class="valor-card"><h4>Empatía</h4><p>Trato humano y cercano.</p></div>
+        <div class="valor-card"><h4>Cita Telefónica</h4><p>Gestión directa y personalizada.</p></div>
+        <div class="valor-card"><h4>Urgencias</h4><p>Atención prioritaria inmediata.</p></div>
     </div>
 
     <section id="servicios">
-        <h2 style="font-family: 'Cinzel', serif;">Lo que dicen nuestros pacientes</h2>
+        <h2 style="font-family: 'Cinzel', serif; margin-bottom: 30px; letter-spacing: 2px;">Lo que dicen nuestros pacientes</h2>
         <div class="google-reviews-box" id="review-box">
-            <div class="stars">★★★★★</div>
+            <div style="color:var(--oro); margin-bottom:15px;">★★★★★</div>
             <div id="review-content">
-                <p class="review-text">"Grandes profesionales. El trato es exquisito."</p>
-                <span style="display:block; margin-top:15px; font-weight:700;">Ricardo Alonso</span>
-                <span class="google-badge">Reseña de Google • Local Guide</span>
+                <p style="font-style:italic;">"Grandes profesionales. El trato es excelente."</p>
+                <strong style="display:block; margin-top:15px;">Ricardo Alonso</strong>
             </div>
         </div>
     </section>
 
-    <section id="sobre-nosotros">
-        <div class="sobre-nosotros-wrapper">
-            <div class="sobre-texto">
-                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 20px;">Donde encontrarnos</h2>
-                <p><strong>Ubicación:</strong> Calle Principal de la Clínica, 123</p>
-                <p><strong>Horario:</strong> Lunes a Viernes de 9:00 a 21:00</p>
-            </div>
-            <div class="mapa-frame">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.61!2d-3.7!3d40.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDI0JzAwLjAiTiAzwrA0MicwMC4wIlc!5e0!3m2!1ses!2ses!4v1620000000000!5m2!1ses!2ses" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
+    <section id="sobre-nosotros" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('fondomapa.jpg'); background-size: cover; background-position: center; color: white; padding: 80px 10%;">
+    <div class="sobre-nosotros-wrapper">
+        <div class="sobre-texto">
+            <h2 style="font-family:'Playfair Display'; margin-bottom:20px; border-bottom: 2px solid var(--naranja); display: inline-block;">Dónde encontrarnos</h2>
+            <p>C/ Astorga, 21. 37006 Salamanca</p>
+            <p>Horario: L-V 09:00 - 20:00</p>
         </div>
+        <div class="mapa-frame">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3012.721469502758!2d-5.6738917!3d40.9656461!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd3f261ee004486d%3A0xeedf5da7b65d5b3a!2sC.%20Astorga%2C%2021%2C%2037006%20Salamanca!5e0!3m2!1ses!2ses!4v1715850000000!5m2!1ses!2ses" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
     </section>
 
     <footer>
-        <p>© 2026 BIOKINES. Todos los derechos reservados.</p>
+        <div class="footer-links">
+            <a href="legal.html">Aviso Legal</a> | 
+            <a href="privacidad.html">Política de Privacidad</a> | 
+            <a href="cookies.html">Política de Cookies</a>
+        </div>
+        <div class="copyright">
+            <p>© 2026 BIOKINES. Todos los derechos reservados.</p>
+        </div>
     </footer>
 
     <script>
         // Lógica del Menú Móvil
-        const menuToggle = document.getElementById('mobile-menu');
-        const navList = document.getElementById('nav-list');
-        menuToggle.addEventListener('click', () => {
-            navList.classList.toggle('active');
+        document.getElementById('mobile-menu').addEventListener('click', () => {
+            document.getElementById('nav-list').classList.toggle('active');
         });
 
-        // Lógica de Reseñas (Se mantiene la tuya)
+        // Lógica de Reseñas Rotativas
         const reviews = [
-            {text: '"Grandes profesionales. El trato es exquisito."', author: "Ricardo Alonso"},
-            {text: '"La mejor clínica. Puntuales y muy empáticos."', author: "Elena Martínez"},
-            {text: '"Me trataron una urgencia de espalda en el mismo día. Un alivio."', author: "Javier G."}
+            {text: '"Grandes profesionales. El trato es excelente."', author: "Ricardo Alonso"},
+            {text: '"Puntuales y muy empáticos. Recomendable 100%."', author: "Elena Martínez"},
+            {text: '"Especialistas de verdad. Me recuperé muy rápido."', author: "Javier G."}
         ];
         let i = 0;
-        const display = document.getElementById('review-content');
-        const box = document.getElementById('review-box');
         setInterval(() => {
             i = (i + 1) % reviews.length;
+            const box = document.getElementById('review-box');
             box.style.opacity = 0;
             setTimeout(() => {
-                display.innerHTML = `<p class="review-text">${reviews[i].text}</p><span style="display:block; margin-top:15px; font-weight:700;">${reviews[i].author}</span><span class="google-badge">Reseña de Google</span>`;
+                document.getElementById('review-content').innerHTML = `<p style="font-style:italic;">${reviews[i].text}</p><strong style="display:block; margin-top:15px;">${reviews[i].author}</strong>`;
                 box.style.opacity = 1;
             }, 500);
         }, 5000);

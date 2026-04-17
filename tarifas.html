@@ -17,7 +17,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; background: var(--blanco); color: var(--negro); }
+        body { font-family: 'Montserrat', sans-serif; background: var(--blanco); color: var(--negro); overflow-x: hidden; }
 
         /* NAVBAR */
         nav { 
@@ -29,7 +29,12 @@
         .logo-text { font-family: 'Cinzel', serif; font-size: 1.6rem; color: var(--negro); letter-spacing: 2px; }
         .logo-text span { color: var(--naranja); }
         .nav-links { display: flex; list-style: none; gap: 30px; }
-        .nav-links a { text-decoration: none; color: var(--negro); font-size: 0.85rem; text-transform: uppercase; }
+        .nav-links a { text-decoration: none; color: var(--negro); font-size: 0.85rem; text-transform: uppercase; font-weight: 700; transition: 0.3s; }
+        .nav-links a:hover { color: var(--naranja); }
+
+        /* ICONO HAMBURGUESA MÓVIL */
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+        .menu-toggle span { width: 25px; height: 3px; background: var(--negro); border-radius: 2px; }
 
         /* HEADER */
         .page-header {
@@ -63,6 +68,7 @@
         .bono-card {
             border: 2px solid #eee; border-radius: 15px; padding: 40px 20px;
             text-align: center; transition: 0.3s; position: relative;
+            background: var(--blanco);
         }
         .bono-card:hover { border-color: var(--naranja); transform: translateY(-5px); }
         .bono-card.popular { border-color: var(--oro); background: var(--gris-suave); }
@@ -82,6 +88,25 @@
 
         /* FOOTER */
         footer { background: var(--negro); color: #888; padding: 40px 5%; text-align: center; font-size: 0.8rem; margin-top: 80px; }
+        .footer-links { margin-bottom: 15px; }
+        .footer-links a { color: #888; text-decoration: none; margin: 0 10px; transition: 0.3s; }
+        .footer-links a:hover { color: var(--naranja); }
+        .copyright { border-top: 1px solid #333; margin-top: 20px; padding-top: 20px; }
+
+        /* MEDIA QUERIES PARA MÓVIL */
+        @media (max-width: 768px) {
+            .menu-toggle { display: flex; }
+            .nav-links {
+                display: none; flex-direction: column; position: absolute;
+                top: 80px; left: 0; width: 100%; background: var(--gris); padding: 20px;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+            }
+            .nav-links.active { display: flex; }
+            .page-header h1 { font-size: 1.8rem; letter-spacing: 2px; }
+            .tabla-precios th, .tabla-precios td { padding: 15px 10px; font-size: 0.9rem; }
+            .precio-tag { font-size: 1rem; }
+            .footer-links a { display: block; margin: 10px 0; }
+        }
     </style>
 </head>
 <body>
@@ -91,7 +116,10 @@
             <img src="LOGO3.jpg" alt="Biokines" class="logo-img">
             <div class="logo-text">BI<span>O</span>KINES</div>
         </a>
-        <ul class="nav-links">
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span><span></span><span></span>
+        </div>
+        <ul class="nav-links" id="nav-list">
             <li><a href="index.html">Inicio</a></li>
             <li><a href="equipo.html">Equipo</a></li>
             <li><a href="servicios.html">Servicios</a></li>
@@ -173,8 +201,24 @@
     </main>
 
     <footer>
-        <p>© 2026 BIOKINES. Todos los derechos reservados.</p>
+        <div class="footer-links">
+            <a href="legal.html">Aviso Legal</a> | 
+            <a href="privacidad.html">Politica de Privacidad</a> | 
+            <a href="cookies.html">Politica de Cookies</a>
+        </div>
+        <div class="copyright">
+            <p>© 2026 BIOKINES. Todos los derechos reservados.</p>
+        </div>
     </footer>
+
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+
+        menuToggle.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+    </script>
 
 </body>
 </html>

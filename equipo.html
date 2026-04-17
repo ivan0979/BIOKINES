@@ -16,7 +16,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; background: var(--blanco); color: var(--negro); }
+        body { font-family: 'Montserrat', sans-serif; background: var(--blanco); color: var(--negro); overflow-x: hidden; }
 
         /* NAVBAR (Mismo estilo que index) */
         nav { 
@@ -29,8 +29,12 @@
         .logo-text { font-family: 'Cinzel', serif; font-size: 1.6rem; color: var(--negro); letter-spacing: 2px; }
         .logo-text span { color: var(--naranja); }
         .nav-links { display: flex; list-style: none; gap: 30px; }
-        .nav-links a { text-decoration: none; color: var(--negro); font-size: 0.85rem; text-transform: uppercase; transition: 0.3s; }
+        .nav-links a { text-decoration: none; color: var(--negro); font-size: 0.85rem; text-transform: uppercase; transition: 0.3s; font-weight: 700; }
         .nav-links a:hover { color: var(--naranja); }
+
+        /* ICONO HAMBURGUESA */
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+        .menu-toggle span { width: 25px; height: 3px; background: var(--negro); border-radius: 2px; }
 
         /* HEADER DE PÁGINA */
         .page-header {
@@ -82,10 +86,23 @@
 
         /* FOOTER */
         footer { background: var(--negro); color: #888; padding: 40px 5%; text-align: center; font-size: 0.8rem; margin-top: 50px; }
+        .footer-links { margin-bottom: 20px; }
+        .footer-links a { color: #888; text-decoration: none; margin: 0 10px; transition: 0.3s; }
+        .footer-links a:hover { color: var(--naranja); }
         .copyright { border-top: 1px solid #333; padding-top: 20px; margin-top: 20px; }
 
+        /* MEDIA QUERIES PARA MÓVIL */
         @media (max-width: 768px) {
+            .menu-toggle { display: flex; }
+            .nav-links {
+                display: none; flex-direction: column; position: absolute;
+                top: 80px; left: 0; width: 100%; background: var(--gris); padding: 20px;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+            }
+            .nav-links.active { display: flex; }
             .grid-profesionales { grid-template-columns: 1fr; }
+            .page-header h1 { font-size: 1.8rem; }
+            .footer-links a { display: block; margin: 10px 0; }
         }
     </style>
 </head>
@@ -96,7 +113,12 @@
             <img src="LOGO3.jpg" alt="Logo Biokines" class="logo-img">
             <div class="logo-text">BI<span>O</span>KINES</div>
         </a>
-        <ul class="nav-links">
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span><span></span><span></span>
+        </div>
+
+        <ul class="nav-links" id="nav-list">
             <li><a href="index.html">Inicio</a></li>
             <li><a href="equipo.html" style="color: var(--naranja); font-weight: 700;">Equipo</a></li>
             <li><a href="servicios.html">Servicios</a></li>
@@ -159,14 +181,23 @@
 
     <footer>
         <div class="footer-links">
-            <a href="#">Aviso Legal</a> | 
-            <a href="#">Política de Privacidad</a> | 
-            <a href="#">Política de Cookies</a>
+            <a href="legal.html">Aviso Legal</a> | 
+            <a href="privacidad.html">Política de Privacidad</a> | 
+            <a href="cookies.html">Política de Cookies</a>
         </div>
         <div class="copyright">
             <p>© 2026 BIOKINES. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+
+        menuToggle.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+    </script>
 
 </body>
 </html>

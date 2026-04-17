@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidad | Biokines</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --naranja: #FF8C00;
+            --negro: #1a1a1a;
+            --gris-suave: #f4f4f4;
+            --blanco: #ffffff;
+            --gris: #cdc9c9;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            line-height: 1.8; 
+            color: #333; 
+            background-color: var(--blanco);
+            overflow-x: hidden;
+        }
+
+        /* NAVBAR CON ALINEACIÓN VERTICAL CENTRADA */
+        nav { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 10px 5%; background: var(--gris); position: sticky; top: 0; z-index: 1000;
+            min-height: 80px;
+        }
+        .logo-container { display: flex; align-items: center; text-decoration: none; }
+        .logo-img { height: 50px; width: auto; display: block; margin-right: 15px; }
+        .logo-text { font-family: 'Cinzel', serif; font-size: 1.6rem; color: var(--negro); letter-spacing: 2px; line-height: 1; }
+        .logo-text span { color: var(--naranja); }
+        
+        .nav-links { display: flex; list-style: none; gap: 30px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--negro); font-size: 0.85rem; text-transform: uppercase; font-weight: 700; line-height: 1; }
+
+        /* BOTÓN MÓVIL */
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; align-self: center; }
+        .menu-toggle span { width: 25px; height: 3px; background: var(--negro); border-radius: 2px; }
+
+        /* CABECERA */
+        header {
+            background: var(--negro);
+            color: white;
+            padding: 60px 5%;
+            text-align: center;
+            border-bottom: 4px solid var(--naranja);
+        }
+
+        header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* CONTENIDO */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 10%;
+            padding-bottom: 80px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: var(--naranja);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+        .back-link:hover { opacity: 0.7; }
+
+        section { margin-bottom: 40px; }
+
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: var(--negro);
+            border-left: 3px solid var(--naranja);
+            padding-left: 15px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            list-style: square;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        strong { color: var(--negro); }
+
+        .info-box {
+            background: var(--gris-suave);
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background: var(--negro);
+            text-align: center;
+            padding: 30px;
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        /* MEDIA QUERY MÓVIL */
+        @media (max-width: 768px) {
+            .menu-toggle { display: flex; }
+            .nav-links { 
+                display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; 
+                background: var(--gris); padding: 20px; box-shadow: 0 10px 10px rgba(0,0,0,0.1); 
+            }
+            .nav-links.active { display: flex; }
+            header h1 { font-size: 1.8rem; }
+            .container { padding: 0 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo-container">
+            <img src="LOGO3.jpg" alt="Logo Biokines" class="logo-img">
+            <div class="logo-text">BI<span>O</span>KINES</div>
+        </a>
+        
+        <ul class="nav-links" id="nav-list">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="equipo.html">Equipo</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="tarifas.html">Tarifas</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Política de Privacidad</h1>
+    </header>
+
+    <div class="container">
+        <a href="index.html" class="back-link">← Volver al inicio</a>
+
+        <section>
+            <h2>1. Responsable del tratamiento de datos</h2>
+            <div class="info-box">
+                <p><strong>Responsable:</strong> CENTRO DE FISIOTERAPIA BIOKINES SL</p>
+                <p><strong>CIF:</strong> B37492873</p>
+                <p><strong>Dirección:</strong> Calle Astorga, 42, Bajo, 37006 Salamanca, España</p>
+                <p><strong>Teléfono / Email:</strong> 923246817 / info@biokines.com</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>2. Finalidad del tratamiento</h2>
+            <p>CENTRO DE FISIOTERAPIA BIOKINES SL tratará los datos personales que facilites con las siguientes finalidades:</p>
+            <ul>
+                <li>Gestión de citas, tratamientos y servicios de fisioterapia.</li>
+                <li>Facturación, pagos y obligaciones contables/fiscales.</li>
+                <li>Atención al cliente, resolución de dudas y reclamaciones.</li>
+                <li>Mantenimiento del registro interno de pacientes.</li>
+                <li>Enviar comunicaciones informativas si has prestado tu consentimiento.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>3. Legitimación</h2>
+            <p>La base legal para los tratamientos será:</p>
+            <ul>
+                <li><strong>Cumplimiento de obligaciones contractuales y legales:</strong> Facturación, prestación de servicios y obligaciones sanitarias.</li>
+                <li><strong>Consentimiento del interesado:</strong> Para comunicaciones comerciales o envíos informativos.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>4. Destinatarios de los datos</h2>
+            <p>No se cederán los datos a terceros salvo obligación legal, o cuando sea necesario para cumplir con las finalidades (entidades bancarias, aseguradoras o especialistas médicos asociados).</p>
+        </section>
+
+        <section>
+            <h2>5. Tiempo de conservación</h2>
+            <p>Se conservarán mientras exista una relación vigente o durante el tiempo que exija la legislación aplicable (plazos de facturación y obligaciones de custodia de historias clínicas). Una vez extinguida, los datos se bloquearán o eliminarán debidamente.</p>
+        </section>
+
+        <section>
+            <h2>6. Derechos de los usuarios</h2>
+            <p>Como paciente tienes derecho a acceder, rectificar, suprimir, oponerte, limitar el tratamiento y solicitar la portabilidad de tus datos personales.</p>
+            <p>Para ejercer estos derechos, puedes dirigirte por escrito a la dirección del responsable adjuntando copia de tu DNI o documento equivalente.</p>
+        </section>
+
+        <section>
+            <h2>7. Seguridad</h2>
+            <p>Adoptamos las medidas técnicas y organizativas apropiadas para garantizar la seguridad de los datos, evitando su alteración, pérdida o acceso no autorizado, conforme al RGPD.</p>
+        </section>
+
+        <section>
+            <h2>8. Uso de cookies</h2>
+            <p>Este sitio web utiliza cookies para mejorar la navegación. Puedes consultar nuestra política específica para aceptarlas, rechazarlas o desactivarlas desde tu navegador.</p>
+        </section>
+
+        <section>
+            <h2>9. Cambios y Actualización</h2>
+            <p>CENTRO DE FISIOTERAPIA BIOKINES SL se reserva el derecho de modificar esta Política para adaptarla a novedades legislativas o técnicas.</p>
+            <p><strong>Última actualización:</strong> 11 de septiembre de 2025</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2026 BIOKINES. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        document.getElementById('mobile-menu').addEventListener('click', () => {
+            document.getElementById('nav-list').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

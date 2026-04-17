@@ -16,7 +16,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; background: var(--blanco); color: var(--negro); }
+        body { font-family: 'Montserrat', sans-serif; background: var(--blanco); color: var(--negro); overflow-x: hidden; }
 
         /* NAVBAR */
         nav { 
@@ -29,8 +29,12 @@
         .logo-text { font-family: 'Cinzel', serif; font-size: 1.6rem; color: var(--negro); letter-spacing: 2px; }
         .logo-text span { color: var(--naranja); }
         .nav-links { display: flex; list-style: none; gap: 30px; }
-        .nav-links a { text-decoration: none; color: var(--negro); font-size: 0.85rem; text-transform: uppercase; transition: 0.3s; }
+        .nav-links a { text-decoration: none; color: var(--negro); font-size: 0.85rem; text-transform: uppercase; transition: 0.3s; font-weight: 700; }
         .nav-links a:hover { color: var(--naranja); }
+
+        /* ICONO HAMBURGUESA PARA MÓVIL */
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+        .menu-toggle span { width: 25px; height: 3px; background: var(--negro); border-radius: 2px; }
 
         /* HEADER DE PÁGINA */
         .page-header {
@@ -92,11 +96,24 @@
 
         /* FOOTER */
         footer { background: var(--negro); color: #888; padding: 40px 5%; text-align: center; font-size: 0.8rem; margin-top: 60px; }
+        .footer-links { margin-bottom: 20px; }
+        .footer-links a { color: #888; text-decoration: none; margin: 0 10px; transition: 0.3s; }
+        .footer-links a:hover { color: var(--naranja); }
         .copyright { border-top: 1px solid #333; padding-top: 20px; margin-top: 20px; }
 
+        /* MEDIA QUERIES PARA MÓVIL */
         @media (max-width: 768px) {
+            .menu-toggle { display: flex; }
+            .nav-links {
+                display: none; flex-direction: column; position: absolute;
+                top: 80px; left: 0; width: 100%; background: var(--gris); padding: 20px;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+            }
+            .nav-links.active { display: flex; }
             .grid-servicios { grid-template-columns: 1fr; }
             .servicios-section { padding: 50px 5%; }
+            .page-header h1 { font-size: 1.8rem; letter-spacing: 2px; }
+            .footer-links a { display: block; margin: 10px 0; }
         }
     </style>
 </head>
@@ -107,7 +124,12 @@
             <img src="LOGO3.jpg" alt="Logo Biokines" class="logo-img">
             <div class="logo-text">BI<span>O</span>KINES</div>
         </a>
-        <ul class="nav-links">
+
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span><span></span><span></span>
+        </div>
+
+        <ul class="nav-links" id="nav-list">
             <li><a href="index.html">Inicio</a></li>
             <li><a href="equipo.html">Equipo</a></li>
             <li><a href="servicios.html" style="color: var(--naranja); font-weight: 700;">Servicios</a></li>
@@ -125,73 +147,73 @@
             
             <div class="servicio-card">
                 <div class="servicio-img-container">
-                    <img src="foto-neuro.jpg" alt="Fisioterapia Neurológica"> </div>
+                    <img src="fneurologica.jpg" alt="Fisioterapia Neurológica"> </div>
                 <div class="servicio-info">
                     <h3>Fisioterapia Neurológica</h3>
-                    <p class="servicio-desc">Introduce aquí tu descripción sobre el tratamiento neurológico...</p>
+                    <p class="servicio-desc">HEMIPLESIA PARKINSON PARÁLISIS CEREBRAL</p>
                 </div>
             </div>
 
             <div class="servicio-card">
                 <div class="servicio-img-container">
-                    <img src="foto-deporte.jpg" alt="Fisioterapia Deportiva"> </div>
+                    <img src="fdeportiva.jpg" alt="Fisioterapia Deportiva"> </div>
                 <div class="servicio-info">
                     <h3>Fisioterapia Deportiva</h3>
-                    <p class="servicio-desc">Introduce aquí tu descripción sobre el tratamiento para deportistas...</p>
+                    <p class="servicio-desc">Contamos con un equipo experimentado en fisioterapia deportiva, con las últimas tecnologías más eficaces, por lo que hacemos que el tiempo de recuperación del deportista sea el menor posible.</p>
                 </div>
             </div>
 
             <div class="servicio-card">
                 <div class="servicio-img-container">
-                    <img src="foto-preventiva.jpg" alt="Fisioterapia Preventiva"> </div>
+                    <img src="varios.jpg" alt="Fisioterapia Preventiva"> </div>
                 <div class="servicio-info">
                     <h3>Fisioterapia Preventiva</h3>
-                    <p class="servicio-desc">Introduce aquí tu descripción sobre cómo prevenir lesiones...</p>
+                    <p class="servicio-desc">Controlamos los factores de riesgo que predisponen a lesiones. Actuamos teniendo en cuenta el deporte o ejercicio a realizar, así como las características personales de cada deportista.</p>
                 </div>
             </div>
 
             <div class="servicio-card">
                 <div class="servicio-img-container">
-                    <img src="foto-ondas.jpg" alt="Ondas de Choque"> </div>
+                    <img src="ondas.jpg" alt="Ondas de Choque"> </div>
                 <div class="servicio-info">
                     <h3>Ondas de Choque</h3>
-                    <p class="servicio-desc">Introduce aquí tu descripción sobre la tecnología de ondas de choque...</p>
+                    <p class="servicio-desc">Provocan efectos médicos que generan reparación acelerada de tejidos, crecimiento celular, restuauración de movilidad. Patologías: rodilla de saltador, epicondilitis, fascitis plantar, tendinopatía, calcificaciones…</p>
                 </div>
             </div>
 
             <div class="servicio-card">
                 <div class="servicio-img-container">
-                    <img src="foto-osteopatia.jpg" alt="Osteopatía"> </div>
+                    <img src="varios.jpg" alt="Osteopatía"> </div>
                 <div class="servicio-info">
                     <h3>Osteopatía</h3>
-                    <p class="servicio-desc">Introduce aquí tu descripción sobre las técnicas osteopáticas...</p>
+                    <p class="servicio-desc">La osteopatía es una disciplina sanitaria donde mediante el abordaje manual ayudamos a que el organismo se equilibre de nuevo para mejorar el funcionamiento del cuerpo.</p>
                 </div>
             </div>
 
             <div class="servicio-card">
                 <div class="servicio-img-container">
-                    <img src="foto-rehabilitacion.jpg" alt="Rehabilitación"> </div>
+                    <img src="rehabilitacion.jpg" alt="Rehabilitación"> </div>
                 <div class="servicio-info">
                     <h3>Rehabilitación</h3>
-                    <p class="servicio-desc">Introduce aquí tu descripción sobre los procesos de rehabilitación...</p>
+                    <p class="servicio-desc">Años de experiencia nos avalan el en tratamiento de lesiones deportivas, postcirugía y lesiones agudas y crónicas.</p>
                 </div>
             </div>
 
             <div class="servicio-card">
                 <div class="servicio-img-container">
-                    <img src="foto-indiba.jpg" alt="Tecnología Indiba"> </div>
+                    <img src="indiba.jpg" alt="Tecnología Indiba"> </div>
                 <div class="servicio-info">
                     <h3>Indiba</h3>
-                    <p class="servicio-desc">Introduce aquí tu descripción sobre el tratamiento con radiofrecuencia Indiba...</p>
+                    <p class="servicio-desc">Tratamiento de radiofrecuencia. Genera circuito cerrado con frecuencia precisa de 448 Khz. que logra la bioestimulación más efectiva. Pioneros en tratamiento INDIBA en nuestra ciudad desde hace más de 15 años.</p>
                 </div>
             </div>
 
             <div class="servicio-card">
                 <div class="servicio-img-container">
-                    <img src="foto-terapia.jpg" alt="Terapia Personalizada"> </div>
+                    <img src="epte.jpg" alt="Terapia EPTE"> </div>
                 <div class="servicio-info">
                     <h3>Terapia</h3>
-                    <p class="servicio-desc">Introduce aquí tu descripción sobre el enfoque terapéutico general...</p>
+                    <p class="servicio-desc">Electrolisis percutánea ecoguiada. Utilización de microcorrientes galvánica. A través de una aguja de acupuntura. Así se accede, con la ayuda del ecógrafo al punto dañado del tendón.</p>
                 </div>
             </div>
 
@@ -200,12 +222,21 @@
 
     <footer>
         <div class="footer-links">
-            <a href="#">Aviso Legal</a> | <a href="#">Privacidad</a> | <a href="#">Cookies</a>
+            <a href="legal.html">Aviso Legal</a> | <a href="privacidad.html">Politica de Privacidad</a> | <a href="cookies.html">Politica de Cookies</a>
         </div>
         <div class="copyright">
             <p>© 2026 BIOKINES. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+
+        menuToggle.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+    </script>
 
 </body>
 </html>
