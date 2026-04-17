@@ -1,0 +1,260 @@
+/* Variables de color */
+:root {
+    --naranja: #FF8C00;
+    --naranja-dark: #E67E00;
+    --blanco: #FFFFFF;
+    --gris-claro: #F4F4F4;
+    --gris-oscuro: #333333;
+    --texto: #555555;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--texto);
+    background-color: var(--blanco);
+}
+
+/* Navegación */
+header {
+    background: var(--blanco);
+    padding: 1rem 5%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gris-oscuro);
+}
+
+.logo span {
+    color: var(--naranja);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--gris-oscuro);
+    margin-left: 2rem;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: var(--naranja);
+}
+
+.btn-cta {
+    background: var(--naranja);
+    color: white !important;
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+}
+
+/* Hero Section */
+.hero {
+    height: 80vh;
+    background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), 
+                url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1000') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    color: var(--gris-oscuro);
+    margin-bottom: 1rem;
+}
+
+.hero h1 span {
+    color: var(--naranja);
+}
+
+.btn-primary {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    background: var(--naranja);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background: var(--naranja-dark);
+}
+
+/* Servicios */
+.services {
+    padding: 5rem 10%;
+    background: var(--gris-claro);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: var(--blanco);
+    padding: 2rem;
+    border-radius: 10px;
+    border-bottom: 4px solid var(--naranja);
+    transition: transform 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Contacto */
+.contact {
+    padding: 5rem 10%;
+    text-align: center;
+}
+
+.contact-info {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-weight: 600;
+}
+
+footer {
+    background: var(--gris-oscuro);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links { display: none; } /* Aquí podrías añadir un menú hamburguesa */
+    .hero h1 { font-size: 2rem; }
+}/* Sección Equipo */
+.team {
+    padding: 100px 8%;
+    background: var(--blanco);
+    text-align: center;
+}
+
+.section-subtitle {
+    margin-top: -3rem;
+    margin-bottom: 3rem;
+    color: var(--naranja);
+    font-weight: 600;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3rem;
+}
+
+.team-card {
+    transition: 0.3s;
+}
+
+.team-img-wrapper {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%; /* Fotos circulares como los puntos del logo */
+    overflow: hidden;
+    border: 3px solid var(--gris-medio);
+    transition: 0.3s;
+    background: var(--gris-medio); /* Color de fondo mientras carga la imagen */
+}
+
+.team-card:hover .team-img-wrapper {
+    border-color: var(--naranja);
+    transform: scale(1.05);
+}
+
+.team-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.team-card h3 {
+    font-size: 1.2rem;
+    color: var(--gris-oscuro);
+    margin-bottom: 0.5rem;
+}
+
+.team-card p {
+    font-size: 0.9rem;
+    color: var(--naranja);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Sección Tarifas */
+.pricing {
+    padding: 100px 8%;
+    background: var(--gris-oscuro);
+    color: var(--blanco);
+}
+
+.pricing .section-title {
+    color: var(--blanco);
+}
+
+.pricing-table {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.price-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #444;
+    font-size: 1.1rem;
+}
+
+.price-item .price {
+    font-weight: 800;
+    color: var(--naranja);
+}
+
+/* Ajuste adicional para el logo si usas el JPG */
+.logo img {
+    height: 50px; /* Ajusta según necesites */
+    vertical-align: middle;
+}

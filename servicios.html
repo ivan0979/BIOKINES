@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios | Biokines</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --naranja: #FF8C00;
+            --negro: #1a1a1a;
+            --gris-suave: #f9f9f9;
+            --blanco: #ffffff;
+            --gris: #cdc9c9;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--blanco); color: var(--negro); }
+
+        /* NAVBAR */
+        nav { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 15px 5%; background: var(--gris); position: sticky; top: 0; z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+        .logo-container { display: flex; align-items: center; text-decoration: none; }
+        .logo-img { height: 50px; margin-right: 15px; }
+        .logo-text { font-family: 'Cinzel', serif; font-size: 1.6rem; color: var(--negro); letter-spacing: 2px; }
+        .logo-text span { color: var(--naranja); }
+        .nav-links { display: flex; list-style: none; gap: 30px; }
+        .nav-links a { text-decoration: none; color: var(--negro); font-size: 0.85rem; text-transform: uppercase; transition: 0.3s; }
+        .nav-links a:hover { color: var(--naranja); }
+
+        /* HEADER DE PÁGINA */
+        .page-header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('fotoinicio.jpg');
+            background-size: cover; background-position: center;
+            color: white; padding: 70px 5%; text-align: center;
+        }
+        .page-header h1 { font-family: 'Cinzel', serif; font-size: 2.5rem; letter-spacing: 5px; }
+
+        /* SECCIÓN SERVICIOS */
+        .servicios-section { padding: 80px 10%; background: var(--blanco); }
+        .grid-servicios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .servicio-card {
+            background: var(--gris-suave);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: 0.4s;
+            display: flex;
+            flex-direction: column;
+        }
+        .servicio-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+
+        /* Espacio para tus fotos */
+        .servicio-img-container {
+            width: 100%;
+            height: 250px;
+            background-color: #ddd; /* Color provisional */
+            overflow: hidden;
+        }
+        .servicio-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .servicio-info { padding: 25px; text-align: left; }
+        .servicio-info h3 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 1.4rem; 
+            color: var(--negro); 
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--naranja);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .servicio-desc { 
+            font-size: 0.95rem; 
+            color: #555; 
+            line-height: 1.7; 
+        }
+
+        /* FOOTER */
+        footer { background: var(--negro); color: #888; padding: 40px 5%; text-align: center; font-size: 0.8rem; margin-top: 60px; }
+        .copyright { border-top: 1px solid #333; padding-top: 20px; margin-top: 20px; }
+
+        @media (max-width: 768px) {
+            .grid-servicios { grid-template-columns: 1fr; }
+            .servicios-section { padding: 50px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo-container">
+            <img src="LOGO3.jpg" alt="Logo Biokines" class="logo-img">
+            <div class="logo-text">BI<span>O</span>KINES</div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="equipo.html">Equipo</a></li>
+            <li><a href="servicios.html" style="color: var(--naranja); font-weight: 700;">Servicios</a></li>
+            <li><a href="tarifas.html">Tarifas</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <header class="page-header">
+        <h1>Nuestras Especialidades</h1>
+    </header>
+
+    <section class="servicios-section">
+        <div class="grid-servicios">
+            
+            <div class="servicio-card">
+                <div class="servicio-img-container">
+                    <img src="foto-neuro.jpg" alt="Fisioterapia Neurológica"> </div>
+                <div class="servicio-info">
+                    <h3>Fisioterapia Neurológica</h3>
+                    <p class="servicio-desc">Introduce aquí tu descripción sobre el tratamiento neurológico...</p>
+                </div>
+            </div>
+
+            <div class="servicio-card">
+                <div class="servicio-img-container">
+                    <img src="foto-deporte.jpg" alt="Fisioterapia Deportiva"> </div>
+                <div class="servicio-info">
+                    <h3>Fisioterapia Deportiva</h3>
+                    <p class="servicio-desc">Introduce aquí tu descripción sobre el tratamiento para deportistas...</p>
+                </div>
+            </div>
+
+            <div class="servicio-card">
+                <div class="servicio-img-container">
+                    <img src="foto-preventiva.jpg" alt="Fisioterapia Preventiva"> </div>
+                <div class="servicio-info">
+                    <h3>Fisioterapia Preventiva</h3>
+                    <p class="servicio-desc">Introduce aquí tu descripción sobre cómo prevenir lesiones...</p>
+                </div>
+            </div>
+
+            <div class="servicio-card">
+                <div class="servicio-img-container">
+                    <img src="foto-ondas.jpg" alt="Ondas de Choque"> </div>
+                <div class="servicio-info">
+                    <h3>Ondas de Choque</h3>
+                    <p class="servicio-desc">Introduce aquí tu descripción sobre la tecnología de ondas de choque...</p>
+                </div>
+            </div>
+
+            <div class="servicio-card">
+                <div class="servicio-img-container">
+                    <img src="foto-osteopatia.jpg" alt="Osteopatía"> </div>
+                <div class="servicio-info">
+                    <h3>Osteopatía</h3>
+                    <p class="servicio-desc">Introduce aquí tu descripción sobre las técnicas osteopáticas...</p>
+                </div>
+            </div>
+
+            <div class="servicio-card">
+                <div class="servicio-img-container">
+                    <img src="foto-rehabilitacion.jpg" alt="Rehabilitación"> </div>
+                <div class="servicio-info">
+                    <h3>Rehabilitación</h3>
+                    <p class="servicio-desc">Introduce aquí tu descripción sobre los procesos de rehabilitación...</p>
+                </div>
+            </div>
+
+            <div class="servicio-card">
+                <div class="servicio-img-container">
+                    <img src="foto-indiba.jpg" alt="Tecnología Indiba"> </div>
+                <div class="servicio-info">
+                    <h3>Indiba</h3>
+                    <p class="servicio-desc">Introduce aquí tu descripción sobre el tratamiento con radiofrecuencia Indiba...</p>
+                </div>
+            </div>
+
+            <div class="servicio-card">
+                <div class="servicio-img-container">
+                    <img src="foto-terapia.jpg" alt="Terapia Personalizada"> </div>
+                <div class="servicio-info">
+                    <h3>Terapia</h3>
+                    <p class="servicio-desc">Introduce aquí tu descripción sobre el enfoque terapéutico general...</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">Aviso Legal</a> | <a href="#">Privacidad</a> | <a href="#">Cookies</a>
+        </div>
+        <div class="copyright">
+            <p>© 2026 BIOKINES. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

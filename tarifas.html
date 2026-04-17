@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarifas | Biokines</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --naranja: #FF8C00;
+            --negro: #1a1a1a;
+            --gris-suave: #f9f9f9;
+            --blanco: #ffffff;
+            --gris: #cdc9c9;
+            --oro: #df9e45;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--blanco); color: var(--negro); }
+
+        /* NAVBAR */
+        nav { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 15px 5%; background: var(--gris); position: sticky; top: 0; z-index: 1000;
+        }
+        .logo-container { display: flex; align-items: center; text-decoration: none; }
+        .logo-img { height: 50px; margin-right: 15px; }
+        .logo-text { font-family: 'Cinzel', serif; font-size: 1.6rem; color: var(--negro); letter-spacing: 2px; }
+        .logo-text span { color: var(--naranja); }
+        .nav-links { display: flex; list-style: none; gap: 30px; }
+        .nav-links a { text-decoration: none; color: var(--negro); font-size: 0.85rem; text-transform: uppercase; }
+
+        /* HEADER */
+        .page-header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('fotoinicio.jpg');
+            background-size: cover; background-position: center;
+            color: white; padding: 70px 5%; text-align: center;
+        }
+        .page-header h1 { font-family: 'Cinzel', serif; font-size: 2.5rem; letter-spacing: 5px; }
+
+        /* SECCIÓN TARIFAS */
+        .tarifas-container { max-width: 1000px; margin: 60px auto; padding: 0 5%; }
+        
+        .intro-tarifas { text-align: center; margin-bottom: 50px; }
+        .intro-tarifas h2 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 15px; }
+        .intro-tarifas p { color: #666; font-size: 1.1rem; }
+
+        /* TABLA DE PRECIOS */
+        .tabla-precios {
+            width: 100%; border-collapse: collapse; margin-bottom: 50px;
+            background: var(--blanco); box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        .tabla-precios th { background: var(--negro); color: white; padding: 20px; text-align: left; font-family: 'Cinzel', serif; }
+        .tabla-precios td { padding: 20px; border-bottom: 1px solid #eee; font-size: 1rem; }
+        .precio-tag { font-weight: 700; color: var(--naranja); font-size: 1.2rem; }
+
+        /* TARJETAS DE BONOS */
+        .bonos-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px; margin-top: 40px;
+        }
+        .bono-card {
+            border: 2px solid #eee; border-radius: 15px; padding: 40px 20px;
+            text-align: center; transition: 0.3s; position: relative;
+        }
+        .bono-card:hover { border-color: var(--naranja); transform: translateY(-5px); }
+        .bono-card.popular { border-color: var(--oro); background: var(--gris-suave); }
+        .badge {
+            position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+            background: var(--oro); color: white; padding: 5px 15px; font-size: 0.7rem;
+            font-weight: 700; border-radius: 20px; text-transform: uppercase;
+        }
+        .bono-card h3 { font-family: 'Cinzel', serif; margin-bottom: 15px; }
+        .bono-precio { font-size: 2.5rem; font-weight: 700; margin-bottom: 10px; color: var(--negro); }
+        .bono-sesion { color: #777; font-size: 0.9rem; margin-bottom: 25px; }
+        .btn-bono {
+            display: inline-block; padding: 10px 25px; background: var(--negro);
+            color: white; text-decoration: none; border-radius: 5px; font-weight: 600;
+        }
+        .bono-card:hover .btn-bono { background: var(--naranja); }
+
+        /* FOOTER */
+        footer { background: var(--negro); color: #888; padding: 40px 5%; text-align: center; font-size: 0.8rem; margin-top: 80px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo-container">
+            <img src="LOGO3.jpg" alt="Biokines" class="logo-img">
+            <div class="logo-text">BI<span>O</span>KINES</div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="equipo.html">Equipo</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="tarifas.html" style="color: var(--naranja); font-weight: 700;">Tarifas</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <header class="page-header">
+        <h1>Tarifas y Bonos</h1>
+    </header>
+
+    <main class="tarifas-container">
+        <div class="intro-tarifas">
+            <h2>Invertir en tu salud es tu mejor decisión</h2>
+            <p>Precios transparentes y planes adaptados a tu proceso de recuperación.</p>
+        </div>
+
+        <table class="tabla-precios">
+            <thead>
+                <tr>
+                    <th>Servicio Individual</th>
+                    <th>Inversión</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Sesión Fisioterapia (General / Deportiva)</td>
+                    <td class="precio-tag">45€</td>
+                </tr>
+                <tr>
+                    <td>Sesión Neurológica / Especializada</td>
+                    <td class="precio-tag">55€</td>
+                </tr>
+                <tr>
+                    <td>Sesión Indiba Activ / Ondas de Choque</td>
+                    <td class="precio-tag">60€</td>
+                </tr>
+                <tr>
+                    <td>Osteopatía y Terapia Manual</td>
+                    <td class="precio-tag">50€</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="intro-tarifas">
+            <h2>Bonos de Tratamiento</h2>
+            <p>Ahorra en tu tratamiento con nuestros packs de sesiones (Sin caducidad).</p>
+        </div>
+
+        <div class="bonos-grid">
+            <div class="bono-card">
+                <h3>Bono 3</h3>
+                <div class="bono-precio">120€</div>
+                <p class="bono-sesion">40€ por sesión</p>
+                <a href="contacto.html" class="btn-bono">Solicitar</a>
+            </div>
+
+            <div class="bono-card popular">
+                <div class="badge">Más Recomendado</div>
+                <h3>Bono 5</h3>
+                <div class="bono-precio">185€</div>
+                <p class="bono-sesion">37€ por sesión</p>
+                <a href="contacto.html" class="btn-bono">Solicitar</a>
+            </div>
+
+            <div class="bono-card">
+                <h3>Bono 10</h3>
+                <div class="bono-precio">340€</div>
+                <p class="bono-sesion">34€ por sesión</p>
+                <a href="contacto.html" class="btn-bono">Solicitar</a>
+            </div>
+        </div>
+
+        <p style="text-align: center; margin-top: 40px; font-size: 0.8rem; color: #999;">
+            * Los precios son orientativos y pueden variar según el especialista o técnicas adicionales requeridas. 
+            Consulta condiciones para fisioterapia a domicilio.
+        </p>
+    </main>
+
+    <footer>
+        <p>© 2026 BIOKINES. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biokines | Fisioterapia Avanzada</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --naranja: #FF8C00;
+            --negro: #1a1a1a;
+            --gris-suave: #f9f9f9;
+            --blanco: #ffffff;
+            --azul-filtro: rgba(15, 68, 122, 0.8);
+            --gris: #cdc9c9;
+            --oro: #ffb400;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--blanco); overflow-x: hidden; }
+
+        /* NAVBAR - RUTAS ACTUALIZADAS */
+        nav { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 15px 5%; background: var(--gris); position: sticky; top: 0; z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+        .logo-container { display: flex; align-items: center; text-decoration: none; }
+        .logo-img { height: 50px; margin-right: 15px; }
+        .logo-text { font-family: 'Cinzel', serif; font-size: 1.6rem; color: var(--negro); letter-spacing: 2px; }
+        .logo-text span { color: var(--naranja); }
+        .nav-links { display: flex; list-style: none; gap: 30px; }
+        .nav-links a { text-decoration: none; color: var(--negro); font-size: 0.85rem; text-transform: uppercase; transition: 0.3s; }
+        .nav-links a:hover { color: var(--naranja); }
+
+        /* HERO */
+        #inicio {
+            height: 90vh; 
+            display: flex; justify-content: center; align-items: center; background-color: var(--blanco);
+        }
+        .hero-content {
+            position: relative; width: 100%; height: 100%;
+            border-radius: 0 0 50vw 0 / 0 0 20vh 0; 
+            overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            background-image: url('fotoinicio.jpg'); 
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+            z-index: 1;
+        }
+        .hero-content::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(90deg, var(--azul-filtro) 0%, rgba(15, 68, 122, 0.4) 100%);
+            z-index: 1;
+        }
+        .hero-text-container { position: relative; z-index: 2; color: white; padding: 0 10%; }
+        .hero-text-container h1 { font-size: 3rem; font-weight: 400; margin-bottom: 30px; max-width: 800px; }
+        .btn-contacto-hero {
+            display: inline-block; background-color: #df9e45; color: white; padding: 12px 35px;
+            text-decoration: none; font-weight: 600; border-radius: 5px; border: 2px solid white; transition: 0.3s;
+        }
+
+        /* SECCIÓN MISIÓN (FOTO RESTAURADA A LA DERECHA) */
+        .mision-section { 
+            display: flex; align-items: center; padding: 100px 10%; background: var(--blanco); 
+            gap: 50px; min-height: 60vh;
+        }
+        .mision-text { flex: 1; }
+        .mision-text h2 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 2.2rem; 
+            font-weight: 400; 
+            line-height: 1.4; 
+            color: var(--negro); 
+            border-left: 4px solid var(--naranja); 
+            padding-left: 30px;
+        }
+        .mision-image { 
+            flex: 1; height: 450px; border-radius: 2px;
+            background-image: url('foto1.JPG'); 
+            background-size: cover; background-position: center;
+            box-shadow: 15px 15px 0px var(--naranja);
+        }
+
+        /* EQUIPO Y VALORES */
+        .equipo-section { padding: 100px 2%; background: var(--gris-suave); text-align: center; }
+        .team-container { display: flex; justify-content: center; gap: 15px; max-width: 1400px; margin: 0 auto; }
+        .team-card { flex: 1; min-width: 160px; }
+        .team-img { width: 140px; height: 140px; border-radius: 50%; margin: 0 auto 20px; overflow: hidden; border: 1px solid #ddd; filter: grayscale(100%); }
+        .team-img img { width: 100%; height: 100%; object-fit: cover; }
+        .team-card h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-style: italic; }
+        .team-card p { font-size: 0.65rem; color: var(--naranja); font-weight: 700; text-transform: uppercase; }
+
+        /* 6 PUNTOS FORMALES */
+        .valores-container {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;
+            max-width: 1200px; margin: 60px auto 0; padding: 0 5%;
+        }
+        .valor-card {
+            text-align: left; padding: 25px; border: 1px solid #e0e0e0;
+            border-left: 4px solid var(--naranja); background: white; transition: 0.3s;
+        }
+        .valor-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .valor-card h4 { font-family: 'Cinzel', serif; font-size: 0.9rem; margin-bottom: 10px; color: var(--negro); }
+        .valor-card p { font-size: 0.85rem; color: #666; line-height: 1.5; }
+
+        /* RESEÑAS GOOGLE */
+        #servicios { padding: 100px 10%; background: var(--blanco); text-align: center; }
+        .google-reviews-box {
+            max-width: 700px; margin: 40px auto; padding: 40px;
+            background: #fff; border-radius: 15px; box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            min-height: 250px; display: flex; flex-direction: column; justify-content: center;
+            transition: opacity 0.5s ease;
+        }
+        .stars { color: var(--oro); font-size: 1.5rem; margin-bottom: 15px; }
+        .review-text { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; color: #444; line-height: 1.6; font-style: italic; }
+        .review-author { margin-top: 20px; font-weight: 700; color: var(--negro); display: block; }
+        .google-badge { font-size: 0.7rem; color: #777; margin-top: 5px; text-transform: uppercase; }
+
+        /* SOBRE NOSOTROS & MAPA */
+        #sobre-nosotros { padding: 100px 10%; background: var(--gris-suave); }
+        .sobre-nosotros-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .mapa-frame {
+            width: 100%; height: 450px; border-radius: 10px; overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1); border: 10px solid white;
+        }
+
+        /* FOOTER */
+        footer { background: var(--negro); color: #888; padding: 40px 5%; text-align: center; font-size: 0.8rem; }
+        .footer-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 20px; }
+        .footer-links a { color: #bbb; text-decoration: none; }
+        .copyright { border-top: 1px solid #333; padding-top: 20px; }
+
+        @media (max-width: 1100px) {
+            .team-container { flex-wrap: wrap; }
+            .mision-section, .sobre-nosotros-wrapper { flex-direction: column; text-align: center; }
+            .mision-text h2 { border-left: none; border-top: 4px solid var(--naranja); padding: 30px 0 0 0; }
+            .valores-container { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 700px) {
+            .valores-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo-container">
+            <img src="LOGO3.jpg" alt="" class="logo-img">
+            <div class="logo-text">BI<span>O</span>KINES</div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="equipo.html">Equipo</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="tarifas.html">Tarifas</a></li>
+            <li><a href="contacto.html" style="color: var(--naranja); font-weight: 700;">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <section id="inicio">
+        <div class="hero-content">
+            <div class="hero-text-container">
+                <h1>Estamos comprometidos con tu salud</h1>
+                <a href="contacto.html" class="btn-contacto-hero">Contáctanos</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="mision-section">
+        <div class="mision-text">
+            <h2>Nuestra misión es proporcionar un enfoque profesional y honesto para la atención del paciente.</h2>
+        </div>
+        <div class="mision-image"></div>
+    </section>
+
+    <section id="equipo" class="equipo-section">
+        <h2 style="font-family: 'Cinzel', serif; letter-spacing: 4px; margin-bottom: 50px;">Nuestro Equipo Especialista</h2>
+        <div class="team-container">
+            <div class="team-card">
+                <div class="team-img"><img src="https://i.pravatar.cc/300?img=11" alt=""></div>
+                <h3>Isabel Serrano Dominguez</h3>
+                <p>Gerente</p>
+            </div>
+            <div class="team-card">
+                <div class="team-img"><img src="https://i.pravatar.cc/300?img=12" alt=""></div>
+                <h3>Juan Fco. Serrano Dominguez</h3>
+                <p>Fisioterapeuta</p>
+            </div>
+            <div class="team-card">
+                <div class="team-img"><img src="https://i.pravatar.cc/300?img=13" alt=""></div>
+                <h3>Sergio Prieto Asensio</h3>
+                <p>Fisioterapeuta</p>
+            </div>
+            <div class="team-card">
+                <div class="team-img"><img src="https://i.pravatar.cc/300?img=14" alt=""></div>
+                <h3>Angel Rodriguez Martin</h3>
+                <p>Fisioterapeuta</p>
+            </div>
+            <div class="team-card">
+                <div class="team-img"><img src="https://i.pravatar.cc/300?img=15" alt=""></div>
+                <h3>Adrian Patrocinio Sanchez</h3>
+                <p>Fisioterapeuta</p>
+            </div>
+            <div class="team-card">
+                <div class="team-img"><img src="https://i.pravatar.cc/300?img=16" alt=""></div>
+                <h3>Marta Santos Serrano</h3>
+                <p>Fisioterapeuta</p>
+            </div>
+        </div>
+
+        <div class="valores-container">
+            <div class="valor-card">
+                <h4>Profesionalidad</h4>
+                <p>Rigurosidad clínica en cada tratamiento, basada en evidencia científica y formación continua.</p>
+            </div>
+            <div class="valor-card">
+                <h4>Puntualidad</h4>
+                <p>Respetamos su tiempo. Gestión eficiente de agenda para garantizar su atención sin esperas.</p>
+            </div>
+            <div class="valor-card">
+                <h4>Experiencia</h4>
+                <p>Décadas de trayectoria resolviendo casos complejos con éxito en fisioterapia avanzada.</p>
+            </div>
+            <div class="valor-card">
+                <h4>Amabilidad y Empatía</h4>
+                <p>Entendemos su dolor. Ofrecemos un trato humano y cercano en un entorno de confianza.</p>
+            </div>
+            <div class="valor-card">
+                <h4>Cita Telefónica</h4>
+                <p>Atención directa y personalizada para agilizar su reserva de la manera más cómoda.</p>
+            </div>
+            <div class="valor-card">
+                <h4>Urgencias Prioritarias</h4>
+                <p>Disponibilidad inmediata para cuadros agudos. Su bienestar no puede esperar.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios">
+        <h2 style="font-family: 'Cinzel', serif; letter-spacing: 2px;">Lo que dicen nuestros pacientes</h2>
+        <div class="google-reviews-box" id="review-box">
+            <div class="stars">★★★★★</div>
+            <div id="review-content">
+                <p class="review-text">"Grandes profesionales. El trato es exquisito y los resultados se notan desde la primera sesión. Muy recomendables."</p>
+                <span class="review-author">Ricardo Alonso</span>
+                <span class="google-badge">Reseña de Google • Local Guide</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre-nosotros">
+        <div class="sobre-nosotros-wrapper">
+            <div class="sobre-texto">
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 20px;">Donde encontrarnos</h2>
+                <p style="line-height: 1.8; color: #555; margin-bottom: 30px;">
+                    Nuestra clínica se encuentra ubicada en una zona de fácil acceso. Contamos con instalaciones modernas y boxes privados para garantizar la máxima comodidad.
+                </p>
+                <p><strong>Ubicación:</strong> Calle Principal de la Clínica, 123</p>
+                <p><strong>Horario de atención:</strong> Lunes a Viernes de 9:00 a 21:00</p>
+            </div>
+            <div class="mapa-frame">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.61483842105!2d-3.7037901!3d40.4167754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDI1JzAwLjQiTiAzwrA0MicyMS42Ilc!5e0!3m2!1ses!2ses!4v1700000000000!5m2!1ses!2ses" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">Aviso Legal</a>
+            <a href="#">Política de Privacidad</a>
+            <a href="#">Política de Cookies</a>
+        </div>
+        <div class="copyright">
+            <p>© 2026 BIOKINES. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const reviews = [
+            {text: '"Grandes profesionales. El trato es exquisito y los resultados se notan desde la primera sesión. Muy recomendables."', author: "Ricardo Alonso"},
+            {text: '"La mejor clínica de fisioterapia. Puntuales, limpios y sobre todo muy empáticos con el paciente."', author: "Elena Martínez"},
+            {text: '"Me trataron una urgencia de espalda en el mismo día. Un alivio encontrar sitios así hoy en día."', author: "Javier G."},
+            {text: '"Llevo meses viniendo y la calidad humana del equipo es insuperable. Isabel y su equipo son de 10."', author: "Carmen Ruiz"},
+            {text: '"Instalaciones modernas y tratamiento muy personalizado. No te sientes como un número más."', author: "Pablo Sanz"}
+        ];
+
+        let i = 0;
+        const display = document.getElementById('review-content');
+        const box = document.getElementById('review-box');
+
+        setInterval(() => {
+            i = (i + 1) % reviews.length;
+            box.style.opacity = 0;
+            setTimeout(() => {
+                display.innerHTML = `
+                    <p class="review-text">${reviews[i].text}</p>
+                    <span class="review-author">${reviews[i].author}</span>
+                    <span class="google-badge">Reseña de Google • Local Guide</span>
+                `;
+                box.style.opacity = 1;
+            }, 500);
+        }, 5000);
+    </script>
+</body>
+</html>

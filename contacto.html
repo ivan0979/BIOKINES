@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Biokines</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --naranja: #FF8C00;
+            --negro: #1a1a1a;
+            --gris-suave: #f9f9f9;
+            --blanco: #ffffff;
+            --gris: #cdc9c9;
+            --whatsapp: #25d366;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--blanco); color: var(--negro); }
+
+        /* NAVBAR */
+        nav { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 15px 5%; background: var(--gris); position: sticky; top: 0; z-index: 1000;
+        }
+        .logo-container { display: flex; align-items: center; text-decoration: none; }
+        .logo-img { height: 50px; margin-right: 15px; }
+        .logo-text { font-family: 'Cinzel', serif; font-size: 1.6rem; color: var(--negro); letter-spacing: 2px; }
+        .logo-text span { color: var(--naranja); }
+        .nav-links { display: flex; list-style: none; gap: 30px; }
+        .nav-links a { text-decoration: none; color: var(--negro); font-size: 0.85rem; text-transform: uppercase; }
+
+        /* HEADER */
+        .page-header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('fotoinicio.jpg');
+            background-size: cover; background-position: center;
+            color: white; padding: 60px 5%; text-align: center;
+        }
+        .page-header h1 { font-family: 'Cinzel', serif; font-size: 2.2rem; letter-spacing: 4px; }
+
+        /* SECCIÓN CONTACTO */
+        .contacto-container { max-width: 1200px; margin: 60px auto; padding: 0 5%; display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; }
+
+        /* Información Izquierda */
+        .info-contacto h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 25px; border-bottom: 3px solid var(--naranja); display: inline-block; }
+        .dato { margin-bottom: 30px; }
+        .dato h3 { font-family: 'Cinzel', serif; font-size: 0.9rem; margin-bottom: 5px; color: var(--naranja); }
+        .dato p { font-size: 1rem; color: #444; }
+
+        /* Formulario Derecha */
+        .formulario-contacto { background: var(--gris-suave); padding: 40px; border-radius: 15px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-size: 0.8rem; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: 'Montserrat', sans-serif; }
+        .btn-enviar { width: 100%; padding: 15px; background: var(--negro); color: white; border: none; border-radius: 5px; font-weight: 700; cursor: pointer; transition: 0.3s; text-transform: uppercase; }
+        .btn-enviar:hover { background: var(--naranja); }
+
+        /* EXTRA: SECCIÓN FAQ */
+        .faq-section { background: #fff; padding: 60px 10%; text-align: center; }
+        .faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; text-align: left; }
+        .faq-item { background: white; padding: 20px; border: 1px solid #eee; border-radius: 8px; }
+        .faq-item h4 { font-family: 'Playfair Display', serif; margin-bottom: 10px; color: var(--negro); }
+
+        /* BOTÓN WHATSAPP FLOTANTE */
+        .whatsapp-float {
+            position: fixed; bottom: 30px; right: 30px; background: var(--whatsapp); color: white;
+            width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center;
+            align-items: center; text-decoration: none; font-size: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 100;
+        }
+
+        @media (max-width: 900px) {
+            .contacto-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo-container">
+            <img src="LOGO3.jpg" alt="Biokines" class="logo-img">
+            <div class="logo-text">BI<span>O</span>KINES</div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="equipo.html">Equipo</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="tarifas.html">Tarifas</a></li>
+            <li><a href="contacto.html" style="color: var(--naranja); font-weight: 700;">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <header class="page-header">
+        <h1>Contacta con Nosotros</h1>
+    </header>
+
+    <main class="contacto-container">
+        <section class="info-contacto">
+            <h2>Hablemos</h2>
+            <div class="dato">
+                <h3>Dirección Clínica</h3>
+                <p>Tu calle, número, código postal</p>
+                <p>Ciudad, Provincia</p>
+            </div>
+            <div class="dato">
+                <h3>Teléfono de Citas</h3>
+                <p>+34 000 000 000</p>
+            </div>
+            <div class="dato">
+                <h3>Email de Consulta</h3>
+                <p>info@biokines.com</p>
+            </div>
+            <div class="dato">
+                <h3>Horario Comercial</h3>
+                <p>Lunes a Viernes: 09:00 - 21:00</p>
+                <p>Sábados y Domingos: Consultar Urgencias</p>
+            </div>
+        </section>
+
+        <section class="formulario-contacto">
+            <form action="#">
+                <div class="form-group">
+                    <label>Nombre Completo</label>
+                    <input type="text" placeholder="Escribe tu nombre...">
+                </div>
+                <div class="form-group">
+                    <label>Correo Electrónico</label>
+                    <input type="email" placeholder="tuemail@ejemplo.com">
+                </div>
+                <div class="form-group">
+                    <label>Teléfono</label>
+                    <input type="tel" placeholder="Tu número de contacto">
+                </div>
+                <div class="form-group">
+                    <label>Servicio de interés</label>
+                    <input type="text" placeholder="Ej: Fisioterapia Deportiva">
+                </div>
+                <div class="form-group">
+                    <label>Tu mensaje o consulta</label>
+                    <textarea rows="5" placeholder="Cuéntanos brevemente qué necesitas..."></textarea>
+                </div>
+                <button type="submit" class="btn-enviar">Enviar Solicitud</button>
+            </form>
+        </section>
+    </main>
+
+    <section class="faq-section">
+        <h2 style="font-family: 'Cinzel', serif;">Preguntas Frecuentes</h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h4>¿Es necesaria una cita previa?</h4>
+                <p>Sí, para garantizar la calidad del tratamiento y evitar esperas, trabajamos exclusivamente bajo cita previa.</p>
+            </div>
+            <div class="faq-item">
+                <h4>¿Qué debo llevar a mi primera sesión?</h4>
+                <p>Recomendamos traer ropa cómoda y cualquier informe médico o prueba diagnóstica (radiografías, resonancias) reciente.</p>
+            </div>
+            <div class="faq-item">
+                <h4>¿Cubren seguros médicos?</h4>
+                <p>Trabajamos de forma privada, pero emitimos facturas detalladas para que puedas solicitar el reembolso si tu seguro tiene libre elección.</p>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/tu_numero_aqui" class="whatsapp-float" target="_blank">
+        W
+    </a>
+
+    <footer style="background: var(--negro); color: #888; padding: 40px 5%; text-align: center; font-size: 0.8rem;">
+        <p>© 2026 BIOKINES. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
